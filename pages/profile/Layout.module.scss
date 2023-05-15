@@ -1,0 +1,24 @@
+@import "styles/themes";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .panel {
+    display: flex;
+    width: max-content;
+    min-height: 40px;
+    border-radius: 20px;
+    z-index: 3;
+    transition: none;
+
+    @include theme() {
+      background-color: theme-get('nav-color');
+    }
+  }
+}

@@ -1,0 +1,112 @@
+@import "../../styles/themes";
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .selected {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+
+    .item {
+      display: flex;
+      gap: 10px;
+      padding: 5px;
+      @include theme() {
+        color: theme-get('text-color');
+        border-radius: 5px;
+        border: 2px solid theme-get('text-color');
+      }
+    }
+  }
+
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    border-radius: 20px;
+    overflow: hidden;
+
+    .controller {
+      display: flex;
+
+      input {
+        border-radius: 0;
+        width: 100%;
+
+        &:focus-visible {
+          box-shadow: none;
+        }
+      }
+
+      .arrow {
+        border-radius: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        @include theme() {
+          background-color: $input-bg;
+        }
+
+        svg {
+          stroke-width: 1.5;
+          @include theme() {
+            stroke: theme-get('nav-color');
+          }
+        }
+      }
+    }
+
+    .menu {
+      padding: 0;
+      @include theme() {
+        border-top: 4px solid theme-get('nav-color');
+      }
+      margin: 0;
+      width: 100%;
+      background-color: $input-bg;
+      list-style: none;
+      max-height: 160px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 15px;
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 99px;
+        border: 5px solid rgba(0, 0, 0, 0);
+        background-clip: padding-box;
+        @include theme() {
+          background-color: theme-get('btn-color');
+        }
+      }
+
+      li {
+        color: $color-text-light;
+        font-size: 16px;
+      }
+
+      div {
+        text-align: center;
+        vertical-align: center;
+        margin: auto;
+        padding: 15px 0;
+        height: 50px;
+        box-sizing: border-box;
+        line-height: 20px;
+        width: 100%;
+        color: $color-text-light;
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@import '../../styles/variables';
+@import '../../styles/themes';
+
+.container {
+  @include theme() {
+    background-color: theme-get('nav-color');
+  }
+  border-radius: 25px;
+  position: relative;
+
+  table {
+    padding: 20px 15px;
+    td {
+      vertical-align: top;
+      padding: 0 0 0 10px;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+  }
+
+  .like {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    right: 15px;
+    top: 15px;
+    @include theme() {
+      background-color: theme-get('btn-color');
+      box-shadow: 0 0 10px theme-get('shadow-color');
+    }
+
+    svg {
+      @include theme() {
+        fill: theme-get('text-color');
+      }
+    }
+  }
+
+  .buy {
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    @include theme() {
+      background-color: theme-get('btn-color');
+      box-shadow: 0 0 30px theme-get('shadow-color');
+    }
+
+    @media (max-width: 768px) {
+      padding: 0;
+      height: 50px;
+    }
+
+    button {
+      width: 30%;
+
+      @media (max-width: 768px) {
+        width: 50%;
+        height: 50px;
+      }
+    }
+
+    .price {
+      opacity: 0.9;
+      margin-left: 10px;
+
+      @media (max-width: 768px) {
+        margin-left: 20px;
+      }
+    }
+  }
+}

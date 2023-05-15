@@ -1,0 +1,134 @@
+@import 'styles/themes';
+@import 'styles/variables';
+
+.footer {
+  display: flex;
+  //flex: 0 0 auto;
+  justify-content: center;
+  @include theme() {
+    background-color: theme-get('nav-color');
+  }
+
+  .container {
+    max-width: $container-width;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    box-sizing: border-box;
+
+    p,
+    a {
+      @include theme() {
+        color: theme-get('footer-text');
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .line {
+      display: block;
+      background-color: #3b3f4a;
+      width: 2px;
+      height: 100%;
+
+      @media (max-width: 768px) {
+        width: calc(100% - 40px);
+        height: 2px;
+        &:nth-child(2) {
+          order: -1;
+        }
+      }
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      row-gap: 17px;
+      box-sizing: border-box;
+
+      @media (max-width: 768px) {
+        flex-direction: row;
+        padding: 20px;
+        width: 100%;
+      }
+
+      .mail {
+        text-decoration: none;
+        @include theme() {
+          color: theme-get('text-color');
+        }
+      }
+
+      .social {
+        display: flex;
+        column-gap: 17px;
+        align-items: center;
+        height: 30px;
+      }
+    }
+
+    .subscription {
+      padding: 20px;
+      box-sizing: border-box;
+
+      .input__wrapper {
+        display: flex;
+        column-gap: 10px;
+        justify-content: space-between;
+      }
+
+      p {
+        margin-bottom: 12px;
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;
+        order: -2;
+      }
+    }
+
+    .copyright {
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+      padding: 20px 0;
+      justify-content: space-between;
+      box-sizing: border-box;
+
+      @media (max-width: 768px) {
+        flex-direction: row;
+        padding: 20px;
+        width: 100%;
+      }
+
+      .logo {
+        p {
+          text-align: right;
+          margin-top: 2px;
+
+          @media (max-width: 768px) {
+            text-align: left;
+          }
+        }
+      }
+
+      .copyright_text {
+        a,
+        p {
+          color: #abaeb5;
+          text-align: right;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 10px;
+
+    &.wrap {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import 'styles/themes';
+@import 'styles/variables';
+
+.container {
+  display: flex;
+  gap: 20px;
+
+  .paginator {
+    display: flex;
+    @include theme() {
+      background-color: theme-get('nav-color');
+    }
+    border-radius: 20px;
+
+    .page {
+      min-width: 40px;
+    }
+  }
+
+  .handle {
+    @include theme() {
+      background-color: theme-get('nav-color');
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    svg {
+      stroke-width: 1.5;
+      @include theme() {
+        stroke: theme-get('text-color');
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@import 'variables';
+
+$themes: (
+  dark: (
+    'text-color': $color-text-dark,
+    'bg-color': $color-bg-dark,
+    'link-color': $color-link-dark,
+    'nav-color': $color-navbar-dark,
+    'active-link-color': $primary,
+    'shadow-color': $color-shadow-dark,
+    'switcher-color': $switcher-color-dark,
+    'btn-opacity': $button-opacity-dark,
+    'btn-opasity-inverted': $button-opacity-light,
+    'btn-color': $color-button-dark,
+    'b-back': $bear-background-dark,
+    'b-top': $bear-top-clip-dark,
+    'b-bottom': $bear-bottom-clip-dark,
+    'bear': $bear-dark,
+    'main-text': $color-text-dark,
+  ),
+  light: (
+    'text-color': $color-text-light,
+    'bg-color': $color-bg-light,
+    'link-color': $color-link-light,
+    'nav-color': $color-navbar-light,
+    'active-link-color': $primary,
+    'shadow-color': $color-shadow-light,
+    'switcher-color': $switcher-color-light,
+    'btn-opacity': $button-opacity-light,
+    'btn-opasity-inverted': $button-opacity-dark,
+    'btn-color': $color-button-light,
+    'b-back': $bear-background-light,
+    'b-top': $bear-top-clip-light,
+    'b-bottom': $bear-bottom-clip-light,
+    'bear': $bear-light,
+    'main-text': $primary,
+  ),
+);
+
+@mixin theme() {
+  @each $theme, $map in $themes {
+    $theme-map: $map !global;
+    :global(.#{$theme}) & {
+      @content;
+    }
+  }
+  $theme-map: null !global;
+}
+
+@mixin g_theme() {
+  @each $theme, $map in $themes {
+    $theme-map: $map !global;
+    .#{$theme} & {
+      @content;
+    }
+  }
+  $theme-map: null !global;
+}
+
+@function theme-get($key) {
+  @return map-get($theme-map, $key);
+}

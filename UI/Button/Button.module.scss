@@ -1,0 +1,103 @@
+@import '../../styles/variables';
+@import '../../styles/themes';
+
+.base {
+  @include theme() {
+    color: theme-get('link-color');
+  }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border: none;
+  display: flex;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 50vh;
+  padding: 0 10px;
+  gap: 5px;
+  width: max-content;
+  height: 40px;
+  outline: none;
+
+  &:focus-visible {
+    @include theme() {
+      box-shadow: 0 0 0 2px theme-get('shadox-color');
+    }
+  }
+
+  &.default {
+    @include theme() {
+      background-color: theme-get('btn-color');
+    }
+  }
+
+  &.transparent {
+    background-color: transparent;
+  }
+
+  svg {
+    @include theme() {
+      fill: theme-get('link-color');
+    }
+    transition: fill 0.2s;
+  }
+
+  &.outlined {
+    border: solid 1.5px;
+  }
+
+  &.contained {
+    background-color: $primary;
+    color: $color-text-dark;
+
+    svg {
+      fill: $color-text-dark;
+    }
+  }
+
+  &.error {
+    background-color: $error;
+  }
+
+  &.color {
+    &:hover {
+      color: $primary;
+
+      svg {
+        fill: $primary;
+      }
+    }
+  }
+
+  &.scale {
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &.small {
+    font-size: 14px;
+  }
+
+  &.medium {
+    height: 50px;
+    padding: 0 15px;
+    font-size: 18px;
+  }
+
+  &.large {
+    height: 60px;
+    padding: 0 25px;
+    font-size: 22px;
+  }
+}

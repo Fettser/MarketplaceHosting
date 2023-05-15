@@ -1,0 +1,180 @@
+@import "styles/themes";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  gap: 20px;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
+  .step {
+    @include theme() {
+      background-color: theme-get('nav-color');
+    }
+    width: 100%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    box-sizing: border-box;
+    height: max-content;
+
+    .header {
+      display: flex;
+      padding-bottom: 20px;
+      @include theme() {
+        border-bottom: 1px solid theme-get('btn-color');
+      }
+      justify-content: flex-start;
+      gap: 20px;
+      align-items: center;
+
+      .number {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: $primary;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .step1 {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .name {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+
+        input {
+          width: 100%;
+        }
+
+        textarea {
+          width: 100%;
+          height: 10em;
+        }
+      }
+
+      .description {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+
+        .desc_text {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          textarea {
+            width: 100%;
+            height: 10em;
+          }
+        }
+      }
+    }
+
+    .step2 {
+      width: 100%;
+      height: 10em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include theme() {
+        border: dashed 2px theme-get('btn-color');
+      }
+      border-radius: 20px;
+      box-sizing: border-box;
+      flex-direction: column;
+      gap: 10px;
+
+      p {
+        text-align: center;
+      }
+    }
+
+    .step3 {
+      display: flex;
+      gap: 20px;
+
+      .image {
+        position: relative;
+        width: 150px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        @include theme() {
+          border: 1px solid theme-get('btn-color');
+        }
+
+        img {
+          object-fit: cover;
+        }
+      }
+
+      .preview, .addition {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .preview {
+
+        width: 30%;
+      }
+
+      .addition {
+        width: 70%;
+      }
+    }
+
+    .step4 {
+      display: flex;
+
+      .categories {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .category {
+          display: flex;
+          width: 70%;
+          flex-direction: column;
+          gap: 10px;
+          .wrapper {
+            gap: 5px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+          }
+        }
+      }
+      .tags {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 50%;
+      }
+    }
+
+    .step5 {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 30%;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+@import "../../styles/themes";
+
+.input {
+  background-color: $input-bg;
+  border-radius: 50vh;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  color: #1f2127;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-sizing: border-box;
+
+  &:focus-visible {
+    @include theme() {
+      box-shadow: 0 0 0 2px theme-get('nav-color'), 0 0 0 4px $input-bg;
+    }
+  }
+}

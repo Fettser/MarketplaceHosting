@@ -1,0 +1,117 @@
+$thumb-size: 12px;
+
+@mixin track-styles {
+  appearance: none;
+  background: transparent;
+  border: transparent;
+}
+
+@mixin thumb-styles {
+  appearance: none;
+  pointer-events: all;
+  width: $thumb-size;
+  height: $thumb-size;
+  //border-radius: 0;
+  border: 0 none;
+  cursor: grab;
+  background-color: red;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.wrapper {
+  position: relative;
+  padding-top: 15px;
+  max-width: 100%;
+  .inputs_field {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: space-between;
+
+    input {
+      max-width: 40%;
+    }
+  }
+}
+
+.inputWrapper {
+  width: calc(100% + #{$thumb-size});
+  margin: 0 calc(#{$thumb-size} / -2);
+  position: absolute;
+  bottom: 100%;
+}
+
+.controlWrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 100%;
+  height: $thumb-size;
+}
+
+.input {
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  pointer-events: none;
+  appearance: none;
+  opacity: 0;
+  z-index: 3;
+  padding: 0;
+
+  &::-ms-track {
+    @include track-styles;
+  }
+
+  &::-moz-range-track {
+    @include track-styles;
+  }
+
+  &:focus::-webkit-slider-runnable-track {
+    @include track-styles;
+  }
+
+  &::-ms-thumb {
+    @include thumb-styles;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb-styles;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb-styles;
+  }
+}
+
+.rail {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 6px;
+  border-radius: 3px;
+  background: #dde9e6;
+}
+
+.innerRail {
+  position: absolute;
+  height: 100%;
+  background: #428673;
+}
+
+.control {
+  width: $thumb-size;
+  height: $thumb-size;
+
+  border: solid 4px white;
+  border-radius: 50%;
+
+  position: absolute;
+  background: #1b6d56;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}

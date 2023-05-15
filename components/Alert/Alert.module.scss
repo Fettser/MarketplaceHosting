@@ -1,0 +1,38 @@
+@import "styles/variables";
+
+.container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  right: 0;
+  height: 100%;
+  pointer-events: none;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .alert {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    color: white;
+    border-radius: 10px;
+    min-width: 160px;
+
+    &.error {
+      background-color: $error;
+    }
+
+    &.success {
+      background-color: $primary;
+    }
+
+    &.pending {
+      background-color: $pending;
+    }
+  }
+}

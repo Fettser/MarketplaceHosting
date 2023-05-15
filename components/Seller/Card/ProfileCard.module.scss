@@ -1,0 +1,87 @@
+@import "styles/themes";
+
+
+.card {
+  @include theme() {
+    background-color: theme-get('nav-color');
+  }
+  width: 100%;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 20px;
+  gap: 20px;
+  box-sizing: border-box;
+  height: max-content;
+
+  .header {
+    display: flex;
+    padding-bottom: 20px;
+    @include theme() {
+      border-bottom: 1px solid theme-get('btn-color');
+    }
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      margin: 0;
+    }
+
+    .btns {
+      display: flex;
+      gap: 10px;
+      .confirm {
+        background-color: #1B6D56;
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    gap: 20px;
+
+    .avatar {
+      float: left;
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      position: relative;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .fields {
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1;
+      gap: 20px;
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-sizing: border-box;
+        flex: 1 1 300px;
+
+        p {
+          opacity: 0.8;
+          font-size: 16px;
+          line-height: 16px;
+          margin: 0;
+        }
+
+        h4 {
+          opacity: 0.9;
+          margin: 0;
+        }
+
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

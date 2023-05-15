@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&family=Rubik:wght@300;500&display=swap');
+@import 'themes';
+@import 'variables';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  transition: all 0.2s;
+  width: 100%;
+  height: 100%;
+  @include g_theme() {
+    color: theme-get('text-color');
+    background-color: theme-get('bg-color');
+  }
+
+  #__next {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  a,
+  p,
+  label,
+  input,
+  div,
+  textarea,
+  button {
+    font-family: 'Nunito Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Rubik', sans-serif;
+  }
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, .0);
+}
+
+#portal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+html[class='light'] {
+  [data-hide-on-theme='light'] {
+    display: none;
+  }
+
+  [data-text-color='true'] {
+    color: $color-text-light;
+    mix-blend-mode: screen;
+  }
+}
+
+html[class='dark'] [data-hide-on-theme='dark'] {
+  display: none;
+}

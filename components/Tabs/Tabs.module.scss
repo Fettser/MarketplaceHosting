@@ -1,0 +1,84 @@
+@import "styles/themes";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+
+  .panel {
+    display: flex;
+    width: max-content;
+    min-height: 40px;
+    border-radius: 20px;
+    z-index: 3;
+    transition: none;
+
+    @include theme() {
+      background-color: theme-get('nav-color');
+    }
+
+    button {
+      width: max-content;
+      transition: none;
+      padding: 0 20px;
+
+      &[data-selected='true'] {
+        pointer-events: none;
+        background-color: $primary;
+        color: white;
+      }
+    }
+  }
+
+  .content {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &.wrapped {
+    border-radius: 20px;
+    @include theme() {
+      background-color: theme-get('nav-color');
+    }
+    gap: 0;
+
+    .panel {
+      justify-content: space-between;
+      width: 100%;
+      min-height: 40px;
+      border-radius: 20px;
+      z-index: 3;
+      @include theme() {
+        background-color: theme-get('btn-color');
+        box-shadow: 0 0 20px theme-get('shadow-color');
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+
+    .content {
+      min-height: 300px;
+      max-height: 500px;
+      padding: 10px 0 15px 15px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 15px;
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 99px;
+        border: 5px solid rgba(0, 0, 0, 0);
+        background-clip: padding-box;
+        @include theme() {
+          background-color: theme-get('btn-color');
+        }
+      }
+    }
+  }
+}

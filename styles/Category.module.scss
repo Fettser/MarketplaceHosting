@@ -1,0 +1,25 @@
+@import 'variables';
+@import 'themes';
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  width: 100%;
+  padding: 20px;
+  border-radius: 40px;
+  box-sizing: border-box;
+
+  @include theme() {
+    background-color: theme-get('btn-color');
+  }
+
+  svg {
+    stroke-width: 3;
+    stroke-linejoin: round;
+    @include theme() {
+      fill: theme-get('text-color');
+      stroke: theme-get('text-color');
+    }
+  }
+}

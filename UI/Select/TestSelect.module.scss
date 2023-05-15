@@ -1,0 +1,78 @@
+@import "styles/themes";
+@import "styles/variables";
+
+.container {
+  display: flex;
+  position: relative;
+
+  .control {
+    @include theme() {
+      background-color: theme-get('btn-color');
+    }
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    min-width: 40px;
+    width: max-content;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+
+  svg {
+    stroke-width: 1.5;
+    @include theme() {
+      stroke: theme-get('text-color');
+    }
+  }
+
+  .menu {
+    position: absolute;
+    min-width: max-content;
+    width: 100%;
+    left: 0;
+    top: 70%;
+    overflow-y: hidden;
+    list-style: none;
+    @include theme() {
+      background-color: theme-get('btn-color');
+    }
+    padding: 0;
+    border-radius: 20px;
+    outline: none;
+
+    .option {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      min-height: 40px;
+      min-width: 40px;
+      cursor: pointer;
+      padding: 0 10px;
+      border-radius: 20px;
+      position: relative;
+      box-sizing: border-box;
+      border: 2px solid transparent;
+      font-size: 14px;
+
+      &.focus {
+        @include theme() {
+          border: 2px solid theme-get('link-color');
+        }
+      }
+
+      &.disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      &.checked {
+        background-color: #1B6D56;
+        color: $color-text-dark;
+      }
+    }
+  }
+}

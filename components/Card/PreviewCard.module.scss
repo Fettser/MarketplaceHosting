@@ -1,0 +1,113 @@
+@import '../../styles/variables';
+@import '../../styles/themes';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 25px;
+  justify-content: space-between;
+  position: relative;
+  @include theme() {
+    background-color: theme-get('nav-color');
+  }
+
+  p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  .preview_image {
+    display: flex;
+    height: 130px;
+    border-radius: inherit;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .description {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+
+    .author {
+      opacity: 0.7;
+    }
+    .name {
+      opacity: 0.9;
+    }
+  }
+
+  .top_buttons {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 2;
+
+    .category {
+      @include theme() {
+        background-color: theme-get('nav-color');
+      }
+      height: 30px;
+      text-align: center;
+      border-radius: 50vh;
+      padding: 0 10px;
+      line-height: 30px;
+    }
+    .like {
+      @include theme() {
+        background-color: theme-get('btn-opasity-inverted');
+      }
+      height: 30px;
+      width: 30px;
+      border-radius: 50vh;
+      padding: 0;
+
+      svg {
+        fill: white;
+      }
+
+      &:hover {
+        svg {
+          fill: $error;
+        }
+      }
+    }
+  }
+  .bord {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 50vh;
+    @include theme() {
+      box-shadow: 0 0 30px theme-get('shadow-color');
+    }
+
+    .price {
+      opacity: 0.9;
+      margin-left: 10px;
+    }
+  }
+}
+
+.stars {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5px;
+}

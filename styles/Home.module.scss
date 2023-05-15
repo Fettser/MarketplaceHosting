@@ -1,0 +1,128 @@
+@import 'themes';
+@import "variables";
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  gap: 20px;
+
+  .landing {
+    display: flex;
+    width: 100%;
+    max-width: $container-width;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    h1 {
+      font-size: 72px;
+      font-weight: 500;
+      width: 50%;
+      margin: 0;
+      position: relative;
+      @include theme() {
+        color: theme-get('main-text');
+      }
+
+      @media (max-width: 480px) {
+        font-size: 48px;
+      }
+
+      &:before {
+        content: 'Маркетплейс Ассетов';
+        width: 100%;
+        position: absolute;
+        left: 4px;
+        top: -2px;
+        color: transparent;
+        @include theme() {
+          -webkit-text-stroke: 0.5px theme-get('text-color');
+        }
+        z-index: -1;
+      }
+    }
+
+    p {
+      font-weight: 200;
+      width: 40%;
+
+      @media (max-width: 480px) {
+        width: 80%;
+      }
+    }
+
+    button {
+      width: 15%;
+    }
+  }
+
+  .discounts {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    @include theme() {
+      background-color: theme-get('nav-color');
+    }
+
+    .grey_container {
+      display: grid;
+      width: 100%;
+      max-width: $container-width;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 40px;
+      grid-template-areas: 'a b' 'c c';
+      box-sizing: border-box;
+
+      @media (max-width: 480px) {
+        grid-template-areas: 'a a' 'b b' 'c c';
+      }
+
+      div:first-child {
+        grid-area: a;
+      }
+
+      div:nth-child(2) {
+        grid-area: b;
+      }
+
+      div:last-child {
+        grid-area: c;
+      }
+    }
+  }
+
+  .categories_wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    h1 {
+      margin: 0;
+      font-size: 48px;
+    }
+
+    .categories {
+      display: grid;
+      padding: 20px;
+      width: 100%;
+      max-width: 800px;
+      gap: 20px;
+      grid-template-columns: repeat(5, 1fr);
+
+      @media (max-width: 480px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}

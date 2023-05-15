@@ -1,0 +1,12 @@
+@import "styles/themes";
+
+.btn {
+  @include theme() {
+    background-color: theme-get('nav-color');
+  }
+  svg {
+    @include theme() {
+      stroke: theme-get('text-color');
+    }
+  }
+}

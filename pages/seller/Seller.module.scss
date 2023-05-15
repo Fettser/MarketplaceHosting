@@ -1,0 +1,15 @@
+.container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  margin: auto;
+  padding: 20px;
+  gap: 20px;
+  box-sizing: border-box;
+
+  .profile {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+  }
+}
